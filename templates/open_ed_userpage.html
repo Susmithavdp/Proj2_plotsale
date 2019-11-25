@@ -1,0 +1,42 @@
+{% include 'include.html' %}
+{% load staticfiles %}
+{% if data %}
+    <br>
+    <h1 align="center" style="font-weight: bold;color: #32508E">Edit Or Delete User</h1><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">USER_ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">EMAIL_ID</th>
+      <th scope="col">MBLNO</th>
+              <th scope="col">CREATED_DATE</th>
+      <th scope="col">ADDRES</th>
+              <th scope="col">EDIT_USER</th>
+      <th scope="col">DELETE_USER</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in data %}
+    <tr>
+      <th scope="row">{{ user.user_id }}</th>
+      <td>{{ user.user_name }}</td>
+      <td>{{ user.user_emailid }}</td>
+      <td>{{ user.user_mblno }}</td>
+          <td>{{ user.user_created_date}}</td>
+      <td>{{ user.user_addres }}</td>
+    <td><a href="{% url 'edit_user' %}?user_id={{ user.user_id }}"><button type="button" class="btn btn-info"> Edit</button>
+</a> </td>
+        <td><a href="{% url 'delete_user' %}?user_id={{ user.user_id }}"><button type="button" class="btn btn-danger"> Delete</button>
+</a> </td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+    {% else %}
+    <h1 align="center">No Data Found</h1>
+{% endif %}

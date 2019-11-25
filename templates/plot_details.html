@@ -1,0 +1,45 @@
+{% include 'include.html' %}
+{% load staticfiles %}<br>
+<h1 align="center" style="font-weight: bold;color: brown" >View plot_no {{ data.platno }} Details </h1><br>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">PLOTNO:</th>
+      <th scope="col">{{ data.platno}}</th>
+      <th scope="col">ROAD_NO:</th>
+      <th scope="col">{{ data.roadno}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">SURVEY_NO</th>
+      <td>{{ data.survey_no }}</td>
+      <th scope="row">BOUNDARIES</th>
+      <td>{{ data.boundaries }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Sq_YARDS</th>
+      <td>{{ data.sq_yards }}</td>
+      <th scope="row">COST_PER_Sq_YARD</th>
+      <td>{{ data.cost_per_sq_yard }}</td>
+    </tr>
+    <tr>
+      <th scope="row">OTHER EXPENCES</th>
+      <td>{{ data.other_expences }}</td>
+      <th scope="row">TOTAL COST</th>
+      <td>{{ data.total_cost }}</td>
+    </tr>
+      <tr>
+      <th scope="row">FACing</th>
+      <td>{{ data.facing }}</td>
+      <th scope="row"> STATUS</th>
+      <td>{{ data.status }}</td>
+    </tr>
+      <tr>
+      <th scope="row">POSTED DATE</th>
+      <td>{{ data.posted_date }}</td>
+      <th scope="row">PLOT_IMG</th>
+      <td><img src="{{ data.plot_image }}" height="100" width="50" ></td>
+    </tr>
+  </tbody>
+</table>

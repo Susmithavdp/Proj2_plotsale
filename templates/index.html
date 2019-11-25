@@ -1,0 +1,45 @@
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/one.css' %}" >
+</head>
+<body>
+<div id="login-box">
+  <div class="left">
+    <h1 align="center">Admin Login</h1>
+      <br><br>
+<form action="{% url 'admin_login' %}" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="username" placeholder="Username"  align="center"/>
+
+    <input type="password" name="password" placeholder="Password"  align="center"/>
+
+
+    <input type="submit"  value="Login"  align="center"/></form>
+      {% if error_msg %}
+          <h2 style="color: mediumblue" align="center">{{ error_msg }}</h2>
+{% endif%}
+  </div>
+
+{#  <div class="right">#}
+{#    <span class="loginwith">User Login</span>#}
+{#      <br>#}
+{##}
+{#    <input type="text" name="username" placeholder="Username" />#}
+{##}
+{#    <input type="password" name="password" placeholder="Password" />#}
+{#          <input type="submit" name="signup_submit" value="Login" />#}
+{#      <br><br>#}
+{##}
+{#    <button class="social-signin google">Create New User</button>#}
+{#  </div>#}
+{#  <div class="or">OR</div>#}
+</div>
+
+
+</body>
+</html>

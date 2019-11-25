@@ -1,0 +1,82 @@
+{% include 'include.html' %}
+{% load staticfiles %}<br>
+<h1 style="font-weight: bold;color: #32508E;" align="center">Add_Appartment</h1><br>
+<form action="{% url 'save_appartment_details' %}" method="post">
+    {% csrf_token %}
+
+<table align="center">
+    <tr>
+        <td width="400" rowspan="11"></td>
+        <td width="800"><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Aprt_Name"  required width="100" name="aprt_name">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Aprt_Add"  required width="100" name="aprt_add">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Aprt_no"  required width="100" name="aprt_no">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Survey_no"  required width="100" name="survey_no">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Bhk"  required width="100" name="bhk">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Cost_per_Bhk"  required width="100" name="cost_per_bhk">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Other_Expences"  required width="100" name="other_expences">
+    </div>
+ </td>
+    </tr>
+
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Facing"  required width="100" name="facing">
+    </div>
+        </td></tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Total"  required width="100" name="total">
+    </div>
+        </td></tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="file" class="form-control"    required formenctype="multipart/form-data" name="img">
+    </div>
+        </td></tr>
+
+<tr>
+
+    <td align="left">
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </td>
+</tr>
+
+
+
+</table>
+    </form>
+{% if msg %}
+<h2 align="center" style="color: #DD4B39">{{ msg }}</h2>
+{% endif %}

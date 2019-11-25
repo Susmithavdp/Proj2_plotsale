@@ -1,0 +1,137 @@
+{% include 'include.html' %}
+{% load staticfiles %}
+{% if data %}<br>
+    <h1 style="font-weight: bold;color: brown" align="center">Update Employee {{ data.emp_id }} Details</h1><br>
+<form action="{% url 'update_employee_details' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" value="{{ data.emp_id }}" name="emp_id">
+
+<table align="center">
+    <tr>
+
+        <td width="400" rowspan="11"></td>
+        <td width="800"><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Name"  required width="100" name="emp_name" value="{{ data.emp_name }}">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="email" class="form-control"  placeholder="Emp_emailid"  required width="100" name="emp_emailid" value="{{ data.emp_emailid }}">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Emp_Mbl_no"  required width="100" name="emp_mblno" value="{{ data.emp_mblno }}">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Salary"  required width="100" name="salary" value="{{ data.emp_salary }}">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Designation"  required width="100" name="designation" value="{{ data.emp_designation }}" readonly>
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Work_Location"  required width="100" name="emp_work_location" value="{{ data.emp_work_location }}">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Remarks"  required width="100" name="emp_remarks" value="{{ data.emp_remarks }}">
+    </div>
+ </td>
+    </tr>
+
+
+
+<tr>
+
+    <td align="left">
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </td>
+</tr>
+
+
+
+</table>
+    </form>
+{% else %}
+    <br>
+<h1 align="center" style="color: #32508E;font-weight: bold">Add_Employee</h1><br>
+<form action="{% url 'save_employee_details' %}" method="post">
+    {% csrf_token %}
+
+<table align="center">
+    <tr>
+        <td width="400" rowspan="11"></td>
+        <td width="800"><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Name"  required width="100" name="emp_name">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="email" class="form-control"  placeholder="Emp_emailid"  required width="100" name="emp_emailid">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Emp_Mbl_no"  required width="100" name="emp_mblno">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="Salary"  required width="100" name="salary">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Designation"  required width="100" name="designation">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Work_Location"  required width="100" name="emp_work_location">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="Emp_Remarks"  required width="100" name="emp_remarks">
+    </div>
+ </td>
+    </tr>
+
+
+
+<tr>
+
+    <td align="left">
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </td>
+</tr>
+
+
+
+</table>
+    </form>
+{% if msg %}
+<h2 align="center" style="color: #DD4B39">{{ msg }}</h2>
+{% endif %}
+{% endif %}

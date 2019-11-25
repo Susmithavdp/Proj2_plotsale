@@ -1,0 +1,45 @@
+{% include 'include.html' %}
+{% load staticfiles %}<br>
+<h1 align="center" style="font-weight: bold;color: brown">Edit Or Delete Employee</h1><br>
+{% if data %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Employee_ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">EMAIL_ID</th>
+      <th scope="col">MBLNO</th>
+              <th scope="col">DATE OF JOINING</th>
+      <th scope="col">SALARY</th>
+              <th scope="col">WORK LOCATION</th>
+         <th scope="col">EDIT_USER</th>
+      <th scope="col">DELETE_USER</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for emp in data %}
+    <tr>
+      <th scope="row">{{ emp.emp_id }}</th>
+      <td>{{ emp.emp_name }}</td>
+      <td>{{ emp.emp_emailid}}</td>
+      <td>{{ emp.emp_mblno}}</td>
+          <td>{{ emp.emp_doj}}</td>
+      <td>{{ emp.emp_salary }}</td>
+          <td>{{ emp.emp_work_location }}</td>
+        <td><a href="{% url 'edit_employee' %}?emp_id={{ emp.emp_id }}"><button type="button" class="btn btn-info"> Edit</button>
+</a> </td>
+        <td><a href="{% url 'delete_employee' %}?emp_id={{ emp.emp_id }}"><button type="button" class="btn btn-danger"> Delete</button>
+</a> </td>
+
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+    {% else %}
+    <h1 align="center">No Data Found</h1>
+{% endif %}

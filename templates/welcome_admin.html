@@ -1,0 +1,32 @@
+ {% include 'include.html' %}
+ {% load staticfiles %}
+{# <div >#}
+{#     <h1 align="center"> Welcome </h1>#}
+{#     <img src="{% static 'imgs/giphy.webp'  %}">#}
+{# </div>#}
+{# <table align="center"><tr><td> <button type="button" class="btn btn-lg btn-primary" disabled >Create_User</button>#}
+{#</td><td><button type="button" class="btn btn-lg btn-primary" disabled  style="width: 250px">Viewall_Users</button></td>#}
+{#     <td><button type="button" class="btn btn-lg btn-primary" disabled>Edit_User</button></td>#}
+{#     <td><button type="button" class="btn btn-lg btn-primary" disabled>Delete_User</button></td>#}
+{# </tr>#}
+{#</table>#}
+ <br>
+ <br>
+<table>
+    <tr>
+        <td rowspan="4">     <img src="{% static 'imgs/giphy.webp'  %}">
+</td><td rowspan="4" width="500"></td>
+        <td><a href="{% url 'create_user' %}"> <button type="button" class="btn btn-lg btn-primary"   style="width: 250px;border-color: white;background-color:forestgreen">Create_User</button></a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'viewall_users' %}"> <button type="button" class="btn btn-lg btn-primary"   style="width: 250px;border-color: white;background-color: orange">Viewall_Users</button></a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'open_e/d_userpage' %}"><button type="button" class="btn btn-lg btn-primary"   style="width: 250px;border-color: white;background-color: #DD4B39">Edit/Delete_User</button></a></td>
+    </tr>
+
+        <tr>
+        <td><button type="button" class="btn btn-lg btn-primary"   style="width: 250px;border-color: white;background-color: navy">Change_admin Password</button></td>
+    </tr>
+
+</table>

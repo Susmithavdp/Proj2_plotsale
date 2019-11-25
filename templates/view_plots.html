@@ -1,0 +1,31 @@
+{% include 'include.html' %}
+{% load staticfiles %}<br>
+<h1 align="center" style="font-weight: bold;color: brown" >View All plots List </h1><br>
+{% if data %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">PLOT_NO</th>
+      <th scope="col">SQ_YARDS</th>
+      <th scope="col">TOTAL_AMMOUNT</th>
+      <th scope="col">STATUS</th>
+              <th scope="col">FOR MORE_DETAILS</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for plot in data %}
+    <tr>
+      <th scope="row">{{ plot.platno }}</th>
+      <td>{{ plot.sq_yards }}</td>
+      <td>{{ plot.total_cost }}</td>
+      <td>{{ plot.status }}</td>
+          <td><a href="{% url 'plot_details' %}?plotno={{plot.platno}}"><button type="button" class="btn btn-info"> Click Here</button>
+</a> </td>  </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+    {% else %}
+    <h1 align="center">No Data Found</h1>
+{% endif %}

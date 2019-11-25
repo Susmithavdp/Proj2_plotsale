@@ -1,0 +1,109 @@
+{% include 'include.html' %}
+{% load staticfiles %}
+{% if data %}
+    <h1 align="center" style="color: burlywood;font-weight: bold">Update Employee {{ data.user_id }} Details</h1>
+<form action="{% url 'update_user_details' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" value="{{ data.user_id }}" name="user_id">
+
+<table align="center">
+    <tr>
+        <td width="400" rowspan="11"></td>
+        <td width="800"><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="User_Name"  required width="100" name="user_name" value="{{ data.user_name }}">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="email" class="form-control"  placeholder="User_emailid"  required width="100" name="user_emailid" value="{{ data.user_emailid }}">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="User_Mbl_no"  required width="100" name="user_mblno" value="{{ data.user_mblno }}">
+    </div>
+ </td>
+    </tr>
+
+
+    <tr>
+        <td><div class="col-md-4 mb-3">
+            <input type="text" class="form-control"  placeholder="Addres"  required name="user_addres"  value="{{ data.user_addres }}">
+    </div>
+ </td>
+    </tr>
+
+
+
+<tr>
+
+    <td align="left">
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </td>
+</tr>
+
+
+
+</table>
+    </form>
+{% if msg %}
+<h2 align="center" style="color: #DD4B39">{{ msg }}</h2>
+{% endif %}
+{% else %}
+    <br>
+
+<h1 style="font-weight: bold;color: #32508E" align="center" >Create User</h1>
+    <br>
+<form action="{% url 'save_user_details' %}" method="post">
+    {% csrf_token %}
+
+<table align="center">
+    <tr>
+        <td width="400" rowspan="11"></td>
+        <td width="800"><div class="col-md-4 mb-3">
+      <input type="text" class="form-control"  placeholder="User_Name"  required width="100" name="user_name">
+    </div>
+ </td>
+    </tr>
+        <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="email" class="form-control"  placeholder="User_emailid"  required width="100" name="user_emailid">
+    </div>
+ </td>
+    </tr>
+    <tr>
+        <td><div class="col-md-4 mb-3">
+      <input type="number" class="form-control"  placeholder="User_Mbl_no"  required width="100" name="user_mblno">
+    </div>
+ </td>
+    </tr>
+
+
+    <tr>
+        <td><div class="col-md-4 mb-3">
+            <textarea class="form-control"  placeholder="Addres"  required name="user_addres"></textarea>
+    </div>
+ </td>
+    </tr>
+
+
+
+<tr>
+
+    <td align="left">
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </td>
+</tr>
+
+
+
+</table>
+    </form>
+{% if msg %}
+<h2 align="center" style="color: #DD4B39">{{ msg }}</h2>
+{% endif %}
+{% endif %}
